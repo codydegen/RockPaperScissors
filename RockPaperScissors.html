@@ -30,7 +30,7 @@ if (playerSelection=="rock" && computerSelection=="scissors" || playerSelection=
 }
 function game(){
     let pScore = 0, cScore = 0, x = 0;
-    while(pScore < 2 || cScore < 2){
+    while(pScore < 3 && cScore < 3){
         x = playRound(playerChoose(),computerPlay());
         if (x == 1){
             pScore++;
@@ -47,11 +47,14 @@ function game(){
 }
 function playerChoose(){
     while(1){
-    let choice = prompt("Choose rock, paper, or scissors.").toLowerCase();
-    if (choice == "rock" || choice == "paper" || choice == "scissors"){
-        return choice;
-    } else {
-        alert("You must choose rock, paper, or scissors.")
+    let choice = prompt("Choose rock, paper, or scissors.","");
+    if (choice !==null) {
+        choice=choice.toLowerCase();
+        if (choice == "rock" || choice == "paper" || choice == "scissors"){
+            return choice;
+        } else {
+            alert("You must choose rock, paper, or scissors.")
+        }
     }
     }
 }
